@@ -1,0 +1,304 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 1rem;
+
+    /* Neon Arcade Palette */
+    --cyan: #00f0ff;
+    --magenta: #ff2a6d;
+    --neon-yellow: #ffea00;
+    --cream: #fff8e7;
+    --void: #0a0a12;
+    --charcoal: #1a1a24;
+    --muted: #2a2a38;
+
+    /* shadcn semantic tokens */
+    --background: 240 33% 4%;
+    --foreground: 45 100% 96%;
+    --card: 240 17% 11%;
+    --card-foreground: 45 100% 96%;
+    --popover: 240 17% 11%;
+    --popover-foreground: 45 100% 96%;
+    --primary: 186 100% 50%;
+    --primary-foreground: 240 33% 4%;
+    --secondary: 240 12% 16%;
+    --secondary-foreground: 45 100% 96%;
+    --muted: 240 12% 16%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 343 100% 59%;
+    --accent-foreground: 45 100% 96%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 10% 24%;
+    --input: 240 10% 24%;
+    --ring: 186 100% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Nunito', system-ui, sans-serif;
+    background-color: var(--void);
+    color: var(--cream);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Monoton', cursive;
+    letter-spacing: 0.04em;
+  }
+
+  .font-display {
+    font-family: 'Monoton', cursive;
+  }
+
+  .font-pixel {
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .font-body {
+    font-family: 'Nunito', sans-serif;
+  }
+}
+
+@layer components {
+  .neon-cyan {
+    color: var(--cyan);
+    text-shadow:
+      0 0 4px rgba(0, 240, 255, 0.85),
+      0 0 10px rgba(0, 240, 255, 0.55),
+      0 0 22px rgba(0, 240, 255, 0.25);
+  }
+
+  .neon-magenta {
+    color: var(--magenta);
+    text-shadow:
+      0 0 4px rgba(255, 42, 109, 0.85),
+      0 0 10px rgba(255, 42, 109, 0.55),
+      0 0 22px rgba(255, 42, 109, 0.25);
+  }
+
+  .neon-yellow {
+    color: var(--neon-yellow);
+    text-shadow:
+      0 0 6px rgba(255, 234, 0, 0.6),
+      0 0 18px rgba(255, 234, 0, 0.4),
+      0 0 36px rgba(255, 234, 0, 0.2);
+  }
+
+  .neon-border-cyan {
+    border-color: var(--cyan);
+    box-shadow:
+      0 0 6px rgba(0, 240, 255, 0.4),
+      inset 0 0 12px rgba(0, 240, 255, 0.1);
+  }
+
+  .neon-border-magenta {
+    border-color: var(--magenta);
+    box-shadow:
+      0 0 6px rgba(255, 42, 109, 0.4),
+      inset 0 0 12px rgba(255, 42, 109, 0.1);
+  }
+
+  .arcade-card {
+    @apply rounded-[--radius] border border-border bg-card shadow-sm transition duration-300;
+  }
+
+  .arcade-card:hover {
+    @apply shadow-md;
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.4),
+      0 0 18px rgba(0, 240, 255, 0.15);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-8 py-4 font-bold transition duration-300;
+    background: var(--cyan);
+    color: var(--void);
+    box-shadow:
+      0 0 12px rgba(0, 240, 255, 0.5),
+      0 4px 0 #00a6b0;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 0 20px rgba(0, 240, 255, 0.7),
+      0 6px 0 #00a6b0;
+  }
+
+  .btn-primary:active {
+    transform: translateY(2px);
+    box-shadow:
+      0 0 8px rgba(0, 240, 255, 0.4),
+      0 2px 0 #00a6b0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border-2 px-8 py-4 font-bold transition duration-300;
+    border-color: var(--magenta);
+    color: var(--magenta);
+    box-shadow: 0 0 12px rgba(255, 42, 109, 0.2);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 42, 109, 0.12);
+    box-shadow: 0 0 20px rgba(255, 42, 109, 0.4);
+  }
+
+  .section-padding {
+    @apply px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32;
+  }
+
+  .container-wide {
+    @apply mx-auto max-w-7xl;
+  }
+
+  .container-narrow {
+    @apply mx-auto max-w-3xl;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+  }
+
+  .glow-magenta {
+    box-shadow: 0 0 30px rgba(255, 42, 109, 0.25);
+  }
+
+  .glow-yellow {
+    box-shadow: 0 0 30px rgba(255, 234, 0, 0.25);
+  }
+}
+
+/* Madam Whim Marketing + Juliet co-crafted watermark */
+.mw-juliet-sign,
+.mw-juliet-sign *,
+.mw-juliet-sign *::before,
+.mw-juliet-sign *::after {
+  box-sizing: border-box;
+}
+
+.mw-juliet-sign {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  pointer-events: auto;
+}
+
+.mw-juliet-swing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: mw-juliet-swing 5s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes mw-juliet-swing {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(2.5deg); }
+  40% { transform: rotate(-1.5deg); }
+  60% { transform: rotate(1.5deg); }
+  80% { transform: rotate(-1deg); }
+}
+
+.mw-pin {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e8b931;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.mw-chain {
+  width: 2px;
+  height: 24px;
+  background: rgba(232, 185, 49, 0.8);
+}
+
+.mw-madamwhim {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  max-width: 120%;
+  margin-bottom: -2px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.mw-madamwhim:hover .mw-diamond {
+  animation: mw-twinkle 0.55s ease-in-out;
+}
+
+@keyframes mw-twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  25% { transform: scale(1.35) rotate(12deg); opacity: 0.65; }
+  50% { transform: scale(1) rotate(0deg); opacity: 1; }
+  75% { transform: scale(1.2) rotate(-8deg); opacity: 0.8; }
+}
+
+.mw-madamwhim-text {
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgb(74, 14, 46);
+}
+
+.mw-sign {
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.mw-sign:hover {
+  transform: scale(1.05);
+}
+
+.mw-sign-cocrafted {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.mw-sign-juliet {
+  font-family: "Dancing Script", cursive;
+  font-size: 28px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.mw-diamond {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  color: rgb(74, 14, 46);
+}
